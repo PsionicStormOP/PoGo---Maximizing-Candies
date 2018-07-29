@@ -55,3 +55,24 @@ def table_to_latex(table):
     string += """\caption{Pinap vs Golden Razz Berries: Expected number of candies for each scenario. Each column is the number of Premier Balls and each row is the number of Pinap berries used before switching to Golden Razz Berries.} \n"""
     string += """\end{table}"""  
     return string
+
+
+# Example
+BCR = 0.1
+CPM = 0.597
+curve = 1.7
+ball = 1.
+berry_p = 1.
+berry_r = 2.5
+radius = 1.5
+medal = 1.3
+base_candy = 5
+bonus_candy = 1
+
+table = np.zeros((13, 19)) * np.NaN
+for n_balls in range(6, 19):
+    table[n_balls - 6, :n_balls + 1] = strategy(
+        BCR, CPM, curve, berry_p, berry_r, radius, medal, base_candy, n_balls, bonus_candy)
+
+string = table_to_latex(table)
+print(string)
