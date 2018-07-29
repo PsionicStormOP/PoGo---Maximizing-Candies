@@ -23,7 +23,7 @@ def strategy(BCR, CPM, curve, berry_p, berry_r, radius, medal, base_candy, n_bal
     return np.array(res)
 	
 	
-	def table_to_latex(table):
+def table_to_latex(table):
     string = ""
     string += """\\begin{table}[H] \n"""
     string += """\\begin{footnotesize} \n"""
